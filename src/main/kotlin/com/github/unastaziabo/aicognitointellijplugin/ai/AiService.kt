@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template.ai
+package com.github.unastaziabo.aicognitointellijplugin.ai
 
 import okhttp3.OkHttpClient
 import okhttp3.Request

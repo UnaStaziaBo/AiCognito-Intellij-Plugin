@@ -1,6 +1,6 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# %NAME% Changelog
+# AiCognito-Intellij-Plugin Changelog
 
 ## [Unreleased]
 ### Added

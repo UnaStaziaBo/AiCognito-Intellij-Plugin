@@ -15,12 +15,12 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow
                 id="AiCognito"
-                factoryClass="org.jetbrains.plugins.template.toolWindow.MyToolWindowFactory"/>
+                factoryClass="com.github.unastaziabo.aicognitointellijplugin.toolWindow.MyToolWindowFactory"/>
     </extensions>
 
     <actions>
         <action id="AiCognitoAction"
-                class="org.jetbrains.plugins.template.action.CognitiveAction"
+                class="com.github.unastaziabo.aicognitointellijplugin.action.CognitiveAction"
                 text="AiCognito"
                 description="Analyze code with AI">
 

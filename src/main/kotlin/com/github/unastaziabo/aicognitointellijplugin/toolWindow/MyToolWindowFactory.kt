@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template.toolWindow
+package com.github.unastaziabo.aicognitointellijplugin.toolWindow
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.fileEditor.FileEditorManager
@@ -6,8 +6,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.ContentFactory
-import org.jetbrains.plugins.template.ai.AiService
-import org.jetbrains.plugins.template.voice.VoiceRecorder
+import com.github.unastaziabo.aicognitointellijplugin.ai.AiService
+import com.github.unastaziabo.aicognitointellijplugin.voice.VoiceRecorder
 import java.awt.BorderLayout
 import java.io.File
 import javax.swing.*

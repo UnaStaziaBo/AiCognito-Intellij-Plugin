@@ -1,91 +1,45 @@
-# AiCognito
+# AiCognito-Intellij-Plugin
 
-AI-powered IntelliJ plugin that helps reduce cognitive load and enhance brainstorming through voice interaction.
+![Build](https://github.com/UnaStaziaBo/AiCognito-Intellij-Plugin/workflows/Build/badge.svg)
+[![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
+
+## Template ToDo list
+- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
+- [ ] Get familiar with the [template documentation][template].
+- [ ] Adjust the [group](./gradle.properties), as well as the [id](./src/main/resources/META-INF/plugin.xml), [name](./src/main/resources/META-INF/plugin.xml), and [sources package](./src/main/kotlin).
+- [ ] Adjust the plugin [description](./src/main/resources/META-INF/plugin.xml) (see [Tips][docs:plugin-description]) and this README to describe what your plugin does.
+- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html?from=IJPluginTemplate).
+- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
+- [ ] Set the `MARKETPLACE_ID` in the above README badges. You can obtain it once the plugin is published to JetBrains Marketplace.
+- [ ] Set the [Plugin Signing](https://plugins.jetbrains.com/docs/intellij/plugin-signing.html?from=IJPluginTemplate) related [secrets](https://github.com/JetBrains/intellij-platform-plugin-template#environment-variables).
+- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html?from=IJPluginTemplate).
+- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+
+This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+
+## Installation
+
+- Using the IDE built-in plugin system:
+
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "AiCognito-Intellij-Plugin"</kbd> >
+  <kbd>Install</kbd>
+
+- Using JetBrains Marketplace:
+
+  Go to [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID) and install it by clicking the <kbd>Install to ...</kbd> button in case your IDE is running.
+
+  You can also download the [latest release](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID/versions) from JetBrains Marketplace and install it manually using
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+
+- Manually:
+
+  Download the [latest release](https://github.com/UnaStaziaBo/AiCognito-Intellij-Plugin/releases/latest) and install it manually using
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+
 
 ---
+Plugin based on the [IntelliJ Platform Plugin Template][template].
 
-## Features
-
-- Voice input for interacting with code
-- AI-powered code analysis
-- Multiple modes:
-  - New → suggests next steps
-  - Modify → analyzes impact and risks
-  - Debug → finds problems and fixes
-  - Explain → explains code clearly
-- Voice output (text-to-speech)
-- Integrated directly into IntelliJ
-
----
-
-## Idea
-
-Modern development often involves high cognitive load.
-
-AiCognito helps developers:
-- think through problems faster
-- reduce context switching
-- brainstorm directly inside the IDE
-- interact with code using natural language
-
----
-
-## Tech Stack
-
-- Kotlin
-- IntelliJ Platform SDK
-- OpenAI API (chat + speech-to-text)
-- OkHttp
-- Java Sound API
-
----
-
-## How to Run
-
-1. Clone the repository: 
-git clone [https://github.com/UnaStaziaBo/aicognito-intellij-plugin.git](https://github.com/UnaStaziaBo/aicognito-intellij-plugin.git)
-
-
-2. Add your API key (in IntelliJ Run Configuration):
-```
-
-OPENAI_API_KEY=your_api_key_here
-
-```
-
-3. Run the plugin:
-
-```
-
-./gradlew runIde
-
-```
-
----
-
-## Usage
-
-1. Select code in the editor  
-2. Use:
-   - Right-click → AiCognito
-   - Tool Window buttons  
-   - Voice input  
-
-3. Get:
-   - structured insights  
-   - suggested improvements  
-   - explanations  
-   - voice feedback  
-
----
-
-## Status
-
-Prototype / MVP version
-
----
-
-## Author
-
-UnaStaziaBo
-```
+[template]: https://github.com/JetBrains/intellij-platform-plugin-template
+[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation

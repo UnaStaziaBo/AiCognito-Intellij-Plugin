@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template.voice
+package com.github.unastaziabo.aicognitointellijplugin.voice
 
 import java.io.File
 import javax.sound.sampled.*

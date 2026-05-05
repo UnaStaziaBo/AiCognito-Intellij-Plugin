@@ -1,10 +1,10 @@
-package org.jetbrains.plugins.template.action
+package com.github.unastaziabo.aicognitointellijplugin.action
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
-import org.jetbrains.plugins.template.ai.AiService
+import com.github.unastaziabo.aicognitointellijplugin.ai.AiService
 
 class CognitiveAction : AnAction() {
 
