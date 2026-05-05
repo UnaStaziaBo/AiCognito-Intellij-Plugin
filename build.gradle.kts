@@ -14,7 +14,7 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
     // JSON
-    implementation("org.json:json:20240303")
+    implementation("org.json:json:20251224")
 
     // IntelliJ Platform
     intellijPlatform {
