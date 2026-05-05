@@ -3,13 +3,20 @@ import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.intellij.platform")
-    id("org.jetbrains.changelog")
 }
 
+
 dependencies {
+    // tests
     testImplementation("junit:junit:4.13.2")
 
-    // IntelliJ Platform Gradle Plugin Dependencies Extension - read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-dependencies-extension.html
+    // HTTP (for OpenAI)
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // JSON
+    implementation("org.json:json:20240303")
+
+    // IntelliJ Platform
     intellijPlatform {
         intellijIdea("2025.2.6.2")
         testFramework(TestFrameworkType.Platform)
