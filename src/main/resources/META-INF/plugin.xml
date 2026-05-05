@@ -1,0 +1,31 @@
+<idea-plugin>
+
+    <id>org.unastaziabo.aicognito</id>
+
+    <name>AiCognito</name>
+
+    <vendor>UnaStaziaBo</vendor>
+
+    <description>
+        AI assistant for IntelliJ that helps reduce cognitive load and enhance brainstorming through voice interaction.
+    </description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow
+                id="AiCognito"
+                factoryClass="org.jetbrains.plugins.template.toolWindow.MyToolWindowFactory"/>
+    </extensions>
+
+    <actions>
+        <action id="AiCognitoAction"
+                class="org.jetbrains.plugins.template.action.CognitiveAction"
+                text="AiCognito"
+                description="Analyze code with AI">
+
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>
