@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template
+package org.unastaziabo.aicognito
 
 import org.junit.Test
 import org.junit.Assert.assertEquals

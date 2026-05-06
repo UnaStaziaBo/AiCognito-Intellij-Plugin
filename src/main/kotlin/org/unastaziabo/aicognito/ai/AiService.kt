@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template.ai
+package org.unastaziabo.aicognito.ai
 
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -14,13 +14,34 @@ class AiService {
 
     private val client = OkHttpClient()
 
-    // API key is loaded from environment variables
     private val apiKey: String = System.getenv("OPENAI_API_KEY")
         ?: throw RuntimeException("OPENAI_API_KEY not set")
 
     fun askAI(prompt: String): String {
 
-        val requestBody = createChatRequestBody(prompt)
+        val requestBody = JSONObject().apply {
+            put("model", CHAT_MODEL)
+
+            val messages = JSONArray().apply {
+
+                put(JSONObject().apply {
+                    put("role", "system")
+                    put(
+                        "content",
+                        "You are a senior developer assistant. " +
+                                "Adapt response style depending on task: debug, modify, new, explain. " +
+                                "Always be concise. Include minimal useful code when relevant."
+                    )
+                })
+
+                put(JSONObject().apply {
+                    put("role", "user")
+                    put("content", prompt)
+                })
+            }
+
+            put("messages", messages)
+        }.toString().toRequestBody(JSON_MEDIA_TYPE)
 
         val request = Request.Builder()
             .url(CHAT_URL)
@@ -32,7 +53,13 @@ class AiService {
         val responseBody = response.body?.string()
             ?: throw RuntimeException("Empty response from AI")
 
-        return parseChatResponse(responseBody)
+        val json = JSONObject(responseBody)
+
+        return json
+            .getJSONArray("choices")
+            .getJSONObject(0)
+            .getJSONObject("message")
+            .getString("content")
     }
 
     fun transcribeAudio(file: File): String {
@@ -57,38 +84,7 @@ class AiService {
         val responseBody = response.body?.string()
             ?: throw RuntimeException("Empty transcription response")
 
-        return parseTranscription(responseBody)
-    }
-
-    // Builds request body for chat completion
-    private fun createChatRequestBody(prompt: String) =
-        JSONObject().apply {
-            put("model", CHAT_MODEL)
-
-            val messages = JSONArray().apply {
-                put(JSONObject().apply {
-                    put("role", "user")
-                    put("content", prompt)
-                })
-            }
-
-            put("messages", messages)
-        }.toString().toRequestBody(JSON_MEDIA_TYPE)
-
-    // Extracts assistant response text
-    private fun parseChatResponse(response: String): String {
-        val json = JSONObject(response)
-
-        return json
-            .getJSONArray("choices")
-            .getJSONObject(0)
-            .getJSONObject("message")
-            .getString("content")
-    }
-
-    // Extracts transcribed text
-    private fun parseTranscription(response: String): String {
-        val json = JSONObject(response)
+        val json = JSONObject(responseBody)
         return json.optString("text", "No speech detected")
     }
 

@@ -1,16 +1,15 @@
-package org.jetbrains.plugins.template.action
+package org.unastaziabo.aicognito.action
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.ui.Messages
-import org.jetbrains.plugins.template.ai.AiService
+import org.unastaziabo.aicognito.ai.AiService
 
 class CognitiveAction : AnAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
 
-        // Retrieve selected code from editor
         val editor = e.getData(CommonDataKeys.EDITOR)
         val selectedText = editor?.selectionModel?.selectedText
 
@@ -23,14 +22,12 @@ class CognitiveAction : AnAction() {
             return
         }
 
-        // Ask user to choose analysis mode
         val mode = Messages.showInputDialog(
-            "Choose mode: new / modify / debug",
-            "Cognitive Mode",
+            "Choose mode: new / modify / debug / explain",
+            "AiCognito",
             null
         )?.lowercase()
 
-        // Build prompt based on selected mode
         val prompt = buildPrompt(mode, selectedText)
 
         val aiService = AiService()
@@ -40,7 +37,7 @@ class CognitiveAction : AnAction() {
 
             Messages.showMessageDialog(
                 result,
-                "Cognitive Insights",
+                "AiCognito",
                 null
             )
 
@@ -53,61 +50,61 @@ class CognitiveAction : AnAction() {
         }
     }
 
-    // Generates structured prompt for the AI depending on the mode
     private fun buildPrompt(mode: String?, code: String): String {
+
         return when (mode) {
 
-            "new" -> """
-                The developer is writing new code.
-                
-                Provide:
-                Next steps:
-                - validation
-                - edge cases
-                - improvements
-                - tests
-                
-                Keep it short and actionable.
-                
+            "debug" -> """
+                Problem:
+                - identify the issue
+
+                Fix:
+                - give exact fix
+                - include minimal code snippet
+
+                Why:
+                - short reason
+
                 Code:
                 $code
             """.trimIndent()
 
             "modify" -> """
-                The developer is modifying existing code.
-                
-                Provide:
                 Impact:
                 - what this change affects
-                
+
                 Risk:
                 - what might break
-                
-                Keep it concise.
-                
+
+                Suggestion:
+                - optional improvement
+
                 Code:
                 $code
             """.trimIndent()
 
-            "debug" -> """
-                The developer is debugging code.
-                
-                Provide:
-                Problem:
-                - possible issue
-                
-                Fix:
-                - how to solve it
-                
-                Keep it simple.
-                
+            "new" -> """
+                Next steps:
+                - concrete step
+                - concrete step
+                - concrete step
+
+                Optional code:
+                ```java
+                minimal example
+                ```
+
                 Code:
                 $code
             """.trimIndent()
 
             else -> """
-                Explain this code briefly and clearly.
-                
+                Summary:
+                - short explanation
+
+                Key idea:
+                - main concept
+
                 Code:
                 $code
             """.trimIndent()
