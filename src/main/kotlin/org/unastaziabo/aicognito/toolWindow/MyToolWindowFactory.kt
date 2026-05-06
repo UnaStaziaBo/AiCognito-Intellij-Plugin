@@ -82,7 +82,7 @@ class MyToolWindowFactory : ToolWindowFactory {
                         font-family:monospace;
                         white-space:pre;
                     ">
-$safeCode
+                    $safeCode
                     </pre>
                 """.trimIndent() else ""
             }
