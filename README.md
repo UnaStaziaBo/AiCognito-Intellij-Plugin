@@ -14,24 +14,24 @@
 ------------------------------------------------------------------------
 
 ### Multiple Thinking Modes
-![plugin-new.png](images/plugin-new.png)
+
 -   New → suggests next steps and ideas
-![plugin-modify.png](images/plugin-modify.png)
+    ![plugin-new.png](images/plugin-new.png)
 -   Modify → analyzes impact, risks, improvements
-![plugin-debug.png](images/plugin-debug.png)
+    ![plugin-modify.png](images/plugin-modify.png)
 -   Debug → identifies issues + proposes fixes
-![plugin-explain.png](images/plugin-explain.png)
+    ![plugin-debug.png](images/plugin-debug.png)
 -   Explain → breaks down logic clearly
+    ![plugin-explain.png](images/plugin-explain.png)
 
 ------------------------------------------------------------------------
 
 ### Voice Interaction
-![plugin-voice.png](images/plugin-voice.png)
 -   Record voice directly in the IDE
 -   Automatic speech-to-text (OpenAI)
 -   AI interprets intent (debug / modify / explain
 -   Hands-free workflow
-
+    ![plugin-voice.png](images/plugin-voice.png)
 ------------------------------------------------------------------------
 
 ### Cognitive-first Design
